@@ -1,17 +1,21 @@
-import { client } from "@/sanity/lib/client"
+import { client } from "@/sanity/lib/client";
 
-import { inventory } from "@/config/inventory"
+// import { deviceInventory } from "@/config/device-inventory"
+import { deviceInventory } from "../config/device-inventory";
 
 export async function seedSanityData() {
   const transaction = client.transaction()
-  inventory.forEach((item) => {
+  deviceInventory.forEach((item) => {
     const product = {
       _type: "product",
       _id: item.id,
       name: item.name,
+      brand: item.brand,
       currency: item.currency,
       description: item.description,
       price: item.price,
+      storage: item.storage,
+      ram: item.ram,
       sku: item.sku,
       sizes: item.sizes,
       colors: item.colors,
@@ -25,7 +29,7 @@ export async function seedSanityData() {
 }
 
 async function seedSanityImages() {
-  inventory.forEach(async (item) => {
+  deviceInventory.forEach(async (item) => {
     let images: any[] = []
     for (const image of item.images) {
       const imageAssetResponse = await fetch(image)

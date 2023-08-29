@@ -11,6 +11,16 @@ export const product = defineType({
       type: 'string'
     }),
     {
+      name: 'description',
+      title: 'Description',
+      type: 'string'
+    },
+    {
+      name: 'brand',
+      title: 'Brand',
+      type: 'string'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -23,6 +33,18 @@ export const product = defineType({
       title: 'Images',
       type: 'array',
       of: [{ type: 'image' }]
+    },
+    {
+      name: 'storage',
+      title: 'Storage',
+      type: 'array',
+      of: [{ type: 'string' }]
+    },
+    {
+      name: 'ram',
+      title: 'Ram',
+      type: 'array',
+      of: [{ type: 'string' }]
     },
     {
       name: 'categories',
