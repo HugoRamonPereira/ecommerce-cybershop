@@ -1,9 +1,9 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import { Plus, XCircle } from "lucide-react"
+import Link from 'next/link';
+import { Plus, XCircle } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 
 export function CartItemsEmpty() {
   return (
@@ -22,5 +22,5 @@ export function CartItemsEmpty() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

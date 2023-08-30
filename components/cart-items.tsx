@@ -1,18 +1,18 @@
-"use client"
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { urlForImage } from "@/sanity/lib/image"
-import { Clock, X } from "lucide-react"
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
-import { Product } from "use-shopping-cart/core"
+import Image from 'next/image';
+import Link from 'next/link';
+import { urlForImage } from '@/sanity/lib/image';
+import { Clock, X } from 'lucide-react';
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
+import { Product } from 'use-shopping-cart/core';
 
-import { shimmer, toBase64 } from "@/lib/image"
-import { getSizeName } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useToast } from "@/components/ui/use-toast"
-import { CartItemsEmpty } from "@/components/cart-items-empty"
+import { shimmer, toBase64 } from '@/lib/image';
+import { getSizeName } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/components/ui/use-toast';
+import { CartItemsEmpty } from '@/components/cart-items-empty';
 
 export function CartItems() {
   function removeCartItem() {}
@@ -23,11 +23,11 @@ export function CartItems() {
       className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-500 dark:border-gray-500"
     >
       {[].map((product, productIdx) => (
-        <li key={"key"} className="flex py-6 sm:py-10">
+        <li key={'key'} className="flex py-6 sm:py-10">
           <div className="shrink-0">
             <Image
-              src={"src"}
-              alt={"alt"}
+              src={'src'}
+              alt={'alt'}
               width={0}
               height={0}
               className="h-24 w-24 rounded-md border-2 border-gray-200 object-cover object-center dark:border-gray-800 sm:h-48 sm:w-48"
@@ -39,7 +39,7 @@ export function CartItems() {
               <div>
                 <div className="flex justify-between">
                   <h3 className="text-sm">
-                    <Link href={`/products/slug`} className="font-medium">
+                    <Link href={'/products/slug'} className="font-medium">
                       Name
                     </Link>
                   </h3>
@@ -82,5 +82,5 @@ export function CartItems() {
         </li>
       ))}
     </ul>
-  )
+  );
 }

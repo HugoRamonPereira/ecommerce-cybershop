@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import { useRouter } from "next/navigation"
-import { Filter } from "lucide-react"
+import { useRouter } from 'next/navigation';
+import { Filter } from 'lucide-react';
 
 import {
   Select,
@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from '@/components/ui/select';
 import {
   Sheet,
   SheetContent,
@@ -17,14 +17,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { ProductFilters } from "@/components/product-filters"
+} from '@/components/ui/sheet';
+import { ProductFilters } from '@/components/product-filters';
 
 const sortOptions = [
-  { name: "Newest", value: "/?date=desc" },
-  { name: "Price, low to high", value: "/?price=asc" },
-  { name: "Price, high to low", value: "/?price=desc" },
-]
+  { name: 'Newest', value: '/?date=desc' },
+  { name: 'Price, low to high', value: '/?price=asc' },
+  { name: 'Price, high to low', value: '/?price=desc' },
+];
 
 export function ProductSort() {
   return (
@@ -51,5 +51,5 @@ export function ProductSort() {
         </SheetTrigger>
       </Sheet>
     </div>
-  )
+  );
 }

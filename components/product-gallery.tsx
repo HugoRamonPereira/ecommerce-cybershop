@@ -1,9 +1,9 @@
-import { useState } from "react"
-import Image from "next/image"
-import { urlForImage } from "@/sanity/lib/image"
+import { useState } from 'react';
+import Image from 'next/image';
+import { urlForImage } from '@/sanity/lib/image';
 
-import { SanityProduct } from "@/config/inventory"
-import { shimmer, toBase64 } from "@/lib/image"
+import { SanityProduct } from '@/config/inventory';
+import { shimmer, toBase64 } from '@/lib/image';
 
 interface Props {}
 
@@ -15,12 +15,12 @@ export function ProductGallery() {
         <ul className="grid grid-cols-4 gap-6">
           {[].map((image) => (
             <div
-              key={"key"}
+              key={'key'}
               className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase hover:bg-gray-50"
             >
               <span className="absolute inset-0 overflow-hidden rounded-md">
                 <Image
-                  src={"src"}
+                  src={'src'}
                   width={0}
                   height={0}
                   alt=""
@@ -40,13 +40,13 @@ export function ProductGallery() {
       <div className="aspect-h-1 aspect-w-1 w-full">
         <Image
           priority
-          src={"src"}
-          alt={`alt`}
+          src={'src'}
+          alt={'alt'}
           width={0}
           height={0}
           className="h-full w-full border-2 border-gray-200 object-cover object-center shadow-sm dark:border-gray-800 sm:rounded-lg"
         />
       </div>
     </div>
-  )
+  );
 }

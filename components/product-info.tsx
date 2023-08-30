@@ -1,14 +1,14 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 
-import { SanityProduct } from "@/config/inventory"
-import { getSizeName } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
+import { SanityProduct } from '@/config/inventory';
+import { getSizeName } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 
 interface Props {}
 
@@ -51,5 +51,5 @@ export function ProductInfo() {
         </div>
       </form>
     </div>
-  )
+  );
 }

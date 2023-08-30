@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from 'next/link';
 
-import { stripe } from "@/lib/stripe"
-import { CheckoutSession } from "@/components/checkout-session"
+import { stripe } from '@/lib/stripe';
+import { CheckoutSession } from '@/components/checkout-session';
 
 interface Props {}
 
@@ -23,5 +23,5 @@ export default async function Page() {
         </div>
       </div>
     </main>
-  )
+  );
 }

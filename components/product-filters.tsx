@@ -1,51 +1,51 @@
-"use client"
+'use client';
 
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Checkbox } from "@/components/ui/checkbox"
+} from '@/components/ui/accordion';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const filters = [
   {
-    id: "category",
-    name: "Category",
+    id: 'category',
+    name: 'Category',
     options: [
-      { value: "bags", label: "Bags" },
-      { value: "belts", label: "Belts" },
-      { value: "gloves", label: "Gloves" },
-      { value: "scarves", label: "Scarves" },
-      { value: "wallets", label: "Wallets" },
+      { value: 'bags', label: 'Bags' },
+      { value: 'belts', label: 'Belts' },
+      { value: 'gloves', label: 'Gloves' },
+      { value: 'scarves', label: 'Scarves' },
+      { value: 'wallets', label: 'Wallets' },
     ],
   },
   {
-    id: "size",
-    name: "Size",
+    id: 'size',
+    name: 'Size',
     options: [
-      { value: "xs", label: "X-Small" },
-      { value: "s", label: "Small" },
-      { value: "m", label: "Medium" },
-      { value: "l", label: "Large" },
-      { value: "xl", label: "X-Large" },
-      { value: "one-size", label: "One Size" },
+      { value: 'xs', label: 'X-Small' },
+      { value: 's', label: 'Small' },
+      { value: 'm', label: 'Medium' },
+      { value: 'l', label: 'Large' },
+      { value: 'xl', label: 'X-Large' },
+      { value: 'one-size', label: 'One Size' },
     ],
   },
   {
-    id: "color",
-    name: "Color",
+    id: 'color',
+    name: 'Color',
     options: [
-      { value: "black", label: "Black" },
-      { value: "blue", label: "Blue" },
-      { value: "brown", label: "Brown" },
-      { value: "green", label: "Green" },
-      { value: "yellow", label: "Yellow" },
+      { value: 'black', label: 'Black' },
+      { value: 'blue', label: 'Blue' },
+      { value: 'brown', label: 'Brown' },
+      { value: 'green', label: 'Green' },
+      { value: 'yellow', label: 'Yellow' },
     ],
   },
-]
+];
 
 export function ProductFilters() {
   return (
@@ -57,7 +57,7 @@ export function ProductFilters() {
           <AccordionItem value={`item-${i}`}>
             <AccordionTrigger>
               <span>
-                Section{" "}
+                Section{' '}
                 <span className="ml-1 text-xs font-extrabold uppercase text-gray-400"></span>
               </span>
             </AccordionTrigger>
@@ -80,5 +80,5 @@ export function ProductFilters() {
         </Accordion>
       ))}
     </form>
-  )
+  );
 }

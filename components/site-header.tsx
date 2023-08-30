@@ -1,14 +1,14 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { Edit, ShoppingBag } from "lucide-react"
-import { useShoppingCart } from "use-shopping-cart"
+import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Edit, ShoppingBag } from 'lucide-react';
+import { useShoppingCart } from 'use-shopping-cart';
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { MainNav } from "@/components/main-nav"
-import { ThemeSwitcher } from "@/components/theme-toggle"
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { MainNav } from '@/components/main-nav';
+import { ThemeSwitcher } from '@/components/theme-toggle';
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -49,5 +49,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }

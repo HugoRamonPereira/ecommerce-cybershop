@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import { Loader2 } from "lucide-react"
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
+import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 
 export function CartSummary() {
   function onCheckout() {}
@@ -42,5 +42,5 @@ export function CartSummary() {
         </Button>
       </div>
     </section>
-  )
+  );
 }

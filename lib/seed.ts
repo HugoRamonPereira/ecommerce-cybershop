@@ -1,13 +1,13 @@
-import { client } from "@/sanity/lib/client";
+import { client } from '@/sanity/lib/client';
 
 // import { deviceInventory } from "@/config/device-inventory"
-import { deviceInventory } from "../config/device-inventory";
+import { deviceInventory } from '../config/device-inventory';
 
 export async function seedSanityData() {
-  const transaction = client.transaction()
+  const transaction = client.transaction();
   deviceInventory.forEach((item) => {
     const product = {
-      _type: "product",
+      _type: 'product',
       _id: item.id,
       name: item.name,
       brand: item.brand,
@@ -20,43 +20,43 @@ export async function seedSanityData() {
       sizes: item.sizes,
       colors: item.colors,
       categories: item.categories,
-    }
-    transaction.createOrReplace(product)
-  })
-  await transaction.commit()
-  await seedSanityImages()
-  console.log("Sanity data seeded")
+    };
+    transaction.createOrReplace(product);
+  });
+  await transaction.commit();
+  await seedSanityImages();
+  console.log('Sanity data seeded');
 }
 
 async function seedSanityImages() {
   deviceInventory.forEach(async (item) => {
-    let images: any[] = []
+    let images: any[] = [];
     for (const image of item.images) {
-      const imageAssetResponse = await fetch(image)
-      const imageAssetBuffer = await imageAssetResponse.arrayBuffer()
+      const imageAssetResponse = await fetch(image);
+      const imageAssetBuffer = await imageAssetResponse.arrayBuffer();
       const imageAsset = await client.assets.upload(
-        "image",
+        'image',
         Buffer.from(imageAssetBuffer)
-      )
+      );
       images.push({
         _key: imageAsset._id,
-        _type: "image",
+        _type: 'image',
         asset: {
-          _type: "reference",
+          _type: 'reference',
           _ref: imageAsset._id,
         },
-      })
+      });
     }
     await client
       .patch(item.id)
-      .set({ "slug.current": slugify(item.name), images })
-      .commit()
-  })
+      .set({ 'slug.current': slugify(item.name), images })
+      .commit();
+  });
 }
 
 function slugify(text: string) {
   return text
     .toLowerCase()
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "")
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
 }

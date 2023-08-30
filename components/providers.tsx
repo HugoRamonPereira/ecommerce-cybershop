@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import { CartProvider } from "use-shopping-cart"
+import { CartProvider } from 'use-shopping-cart';
 
-import { Toaster } from "@/components/ui/toaster"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from '@/components/ui/toaster';
+import { TailwindIndicator } from '@/components/tailwind-indicator';
+import { ThemeProvider } from '@/components/theme-provider';
 
 interface ProviderProps {
   children: React.ReactNode
@@ -28,5 +28,5 @@ export function Providers({ children }: ProviderProps) {
         <TailwindIndicator />
       </ThemeProvider>
     </CartProvider>
-  )
+  );
 }

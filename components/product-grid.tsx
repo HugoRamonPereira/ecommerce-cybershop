@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { urlForImage } from "@/sanity/lib/image"
-import { XCircle } from "lucide-react"
-import { formatCurrencyString } from "use-shopping-cart"
+import Image from 'next/image';
+import Link from 'next/link';
+import { urlForImage } from '@/sanity/lib/image';
+import { XCircle } from 'lucide-react';
+import { formatCurrencyString } from 'use-shopping-cart';
 
-import { SanityProduct } from "@/config/inventory"
-import { shimmer, toBase64 } from "@/lib/image"
+import { SanityProduct } from '@/config/inventory';
+import { shimmer, toBase64 } from '@/lib/image';
 
 interface ProductProps {
   products: SanityProduct[]
@@ -24,7 +24,7 @@ export function ProductGrid({ products }: ProductProps) {
           </h1>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -47,5 +47,5 @@ export function ProductGrid({ products }: ProductProps) {
         </Link>
       ))}
     </div>
-  )
+  );
 }
