@@ -31,7 +31,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Apple iPhone 14 Pro Max',
     brand: 'Apple',
     description: 'The iPhone 14 Pro Max display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. iPhone 14 Pro Max is powered by a hexa-core Apple A16 Bionic processor. The iPhone 14 Pro Max supports wireless charging, as well as proprietary fast charging.',
-    price: 1100, // price in smallest currency unit (e.g. cent for USD)
+    price: 110000, // price in smallest currency unit (e.g. cent for USD)
     storage: ['128GB', '256GB', '1TB'],
     ram: ['6GB'],
     image:
@@ -52,7 +52,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Apple iPhone 14 Pro',
     brand: 'Apple',
     description: 'The iPhone 14 Pro display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. iPhone 14 Pro Max is powered by a hexa-core Apple A16 Bionic processor. The iPhone 14 Pro supports wireless charging, as well as proprietary fast charging.',
-    price: 1000, // price in smallest currency unit (e.g. cent for USD)
+    price: 100000, // price in smallest currency unit (e.g. cent for USD)
     storage: ['128GB', '256GB', '1TB'],
     ram: ['6GB'],
     image:
@@ -73,7 +73,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Apple iPhone 14 Plus',
     brand: 'Apple',
     description: 'These handsome leather belts are guaranteed to pull together any outfit. They\'re made of vegetable-tanned Italian leather, which means they have natural highs and lows of color and will look even better over time.',
-    price: 900,
+    price: 90000,
     storage: ['128GB', '256GB', '512GB'],
     ram: ['6GB'],
     image:
@@ -93,7 +93,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Apple iPad Pro 12.9',
     brand: 'Apple',
     description: 'The 12.9-inch iPad Pro display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 12.9 inches diagonally (actual viewable area is less).',
-    price: 1100,
+    price: 110000,
     storage: ['128GB', '256GB', '2TB'],
     ram: ['8GB', '16GB'],
     image:
@@ -113,7 +113,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Apple Watch Ultra',
     brand: 'Apple',
     description: 'The rugged 49mm titanium case comes with built-in GPS + Cellular connectivity and pairs with specialized, high-performance bands.',
-    price: 799,
+    price: 79900,
     storage: ['32GB'],
     ram: ['2GB'],
     image:
@@ -135,7 +135,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Samsung S23 Ultra',
     brand: 'Samsung',
     description: 'The Samsung Galaxy S23 Ultra is the headliner of the S23 series. Specifications are top-notch including 6.8-inch Dynamic AMOLED display with 120Hz refresh rate, Snapdragon 8 Gen 2 processor, 5000mAh battery, up to 12gigs of RAM, and 1TB of storage.',
-    price: 1200,
+    price: 120000,
     storage: ['256GB', '512GB', '1TB'],
     ram: ['8GB', '12GB'],
     image:
@@ -156,7 +156,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Samsung Galaxy ZFold 5',
     brand: 'Samsung',
     description: 'Meet the phone with a big screen like a mobile movie theatre. The one that\'s both an exciting game console and a multi-screen, multitasking workhorse. And topped off with a powerful, pro-grade camera. All folded into your hands.',
-    price: 1800,
+    price: 180000,
     storage: ['256GB', '512GB', '1TB'],
     ram: ['12GB'],
     image:
@@ -177,7 +177,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Samsung Galaxy ZFlip 5',
     brand: 'Samsung',
     description: 'These are timeless sunglasses that are designed in California and handmade in Japan by master craftsmen. The Brooks frames are made with a keyhole bridge, one of the many details the brand includes in their construction.',
-    price: 1000,
+    price: 100000,
     storage: ['256GB', '512GB'],
     ram: ['8GB'],
     image:
@@ -198,7 +198,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Samsung Galaxy Tab S9 Ultra',
     brand: 'Samsung',
     description: 'Our latest collection of handcrafted sunglasses features details like UV-protective lenses in shades specifically chosen to complement each frame, and all at a price that won\'t break the bank. We made these sunglasses with vintage-inspired acetate frames and a keyhole bridge.',
-    price: 1200,
+    price: 120000,
     storage: ['128GB', '512GB', '1TB'],
     ram: ['12GB', '16GB'],
     image:
@@ -217,7 +217,7 @@ export const deviceInventory: DeviceInventoryProps[] = [
     name: 'Samsung Galaxy Watch 6',
     brand: 'Samsung',
     description: 'Start your everyday wellness journey with personalized heart rate zone workouts and insights for better rest with Advanced Sleep Coaching. Work out to your full potential with automatic fitness tracking and personalized performance insights.',
-    price: 320,
+    price: 32000,
     storage: ['16GB'],
     ram: ['2GB'],
     image:
