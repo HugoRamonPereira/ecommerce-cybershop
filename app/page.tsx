@@ -13,18 +13,30 @@ interface PageProps {
   searchParams: {
     date?: string
     price?: string
+    category?: string
+    brand?: string
+    color?: string
+    search?: string
   }
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const { date = 'desc' , price } = searchParams;
+  const { date = 'desc' , price, category, brand, color, search } = searchParams;
   const priceOrder = price ? `| order(price ${price})` : '';
   const dateOrder = date ? `| order(_createdAt ${date})` : '';
-
   const order = `${priceOrder}${dateOrder}`;
 
+  // eslint-disable-next-line quotes
+  const productFilter = `_type == 'product'`;
+  const categoryFilter = category ? `&& '${category}' in categories` : '';
+  const brandFilter = brand ? `&& '${brand}' in brands` : '';
+  const colorFilter = color ? `&& '${color}' in colors` : '';
+  const searchFilter = search ? `&& name match '${search}'` : '';
+  const filter = `*[${productFilter}${categoryFilter}${brandFilter}${colorFilter}${searchFilter}]`;
+
+
   const products = await client.fetch<SanityProduct[]>(
-    groq`*[_type == "product"] ${order} {
+    groq`${filter} ${order} {
       _id,
       _createdAt,
       name,
