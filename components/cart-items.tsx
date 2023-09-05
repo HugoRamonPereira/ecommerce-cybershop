@@ -8,7 +8,7 @@ import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 import { Product } from 'use-shopping-cart/core';
 
 import { shimmer, toBase64 } from '@/lib/image';
-import { getSizeName } from '@/lib/utils';
+import { getProductStorage } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
