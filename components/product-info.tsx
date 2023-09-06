@@ -15,7 +15,33 @@ interface ProductInfoProps {
 }
 
 export function ProductInfo({ product }: ProductInfoProps) {
-  function addToCart() {}
+  const [selectedStorage, setSelectedStorage] = useState(product.storage[0]);
+
+  const { addItem, cartDetails, incrementItem } = useShoppingCart();
+  const { toast } = useToast();
+  const isItemInCart = !!cartDetails?.[product._id];
+
+  function addToCart() {
+    const item = {
+      ...product,
+      product_data: {
+        storage: selectedStorage
+      }
+    };
+    isItemInCart ? incrementItem(item._id) : addItem(item);
+    toast({
+      title: `${item.name} (${getProductStorage(selectedStorage)})`,
+      description: 'Product successfully added to cart!',
+      action: (
+        <Link href='/cart'>
+          <Button variant='link' className='gap-x-2 whitespace-nowrap'>
+            <span>Go to Cart</span>
+            <ArrowRight className='h-5 w-5' />
+          </Button>
+        </Link>
+      ),
+    });
+  }
 
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
@@ -33,10 +59,15 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       <div className="mt-4">
         <p>
-          Storage: <strong>{getProductStorage(product.storage[0])}</strong>
+          Storage: <strong>{getProductStorage(selectedStorage)}</strong>
         </p>
         {product.storage.map((strg) => (
-          <Button key={strg} variant="default" className="mr-2 mt-4">
+          <Button
+            key={strg}
+            variant={selectedStorage === strg ? 'default' : 'outline'}
+            className="mr-2 mt-4"
+            onClick={() => setSelectedStorage(strg)}
+          >
             {getProductStorage(strg)}
           </Button>
         ))}
@@ -47,6 +78,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           <Button
             type="button"
             className="w-full bg-violet-600 py-6 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            onClick={addToCart}
           >
             Add to cart
           </Button>
