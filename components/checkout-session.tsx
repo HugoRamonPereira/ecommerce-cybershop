@@ -5,9 +5,34 @@ import { CheckCheck, XCircle } from 'lucide-react';
 import Stripe from 'stripe';
 import { useShoppingCart } from 'use-shopping-cart';
 
-interface Props {}
+interface CheckoutSessionProps {
+  // To get the correct type just go to the page where we sent this customerDetails prop
+  // hover over the variable and VSCode will give the proper type to us
+  customerDetails: Stripe.Checkout.Session.CustomerDetails | null;
+}
 
-export function CheckoutSession() {
+export function CheckoutSession({ customerDetails }: CheckoutSessionProps) {
+  // The last step of the way is to clear the cart when the client is done checking out
+  const { clearCart } = useShoppingCart();
+
+  // We passed the clearCart inside the useEffect to watch for the dependencies listed below
+  // The function will empty the cart making it 0 in the site header
+  useEffect(() => {
+    if (customerDetails) {
+      clearCart();
+    }
+  }, [customerDetails, clearCart]);
+
+  if (!customerDetails) {
+    return (
+      <>
+        <XCircle className='mx-auto h-10 w-10 text-red-400' />
+        <h1 className='mt-4 text-3xl font-bold tracking-tight text-red-400 sm:text-5xl'>
+          No checkout session found
+        </h1>
+      </>
+    );
+  }
 
   return (
     <>
@@ -16,12 +41,14 @@ export function CheckoutSession() {
         Order Successful!
       </h1>
       <h3 className="mt-8 text-2xl leading-7">
-        Thank you, <span className="font-extrabold">Name</span>!
+        Thank you, <span className="font-extrabold">{customerDetails.name}</span> for shopping with us!
       </h3>
       <p className="mt-8">
         Check your purchase email{' '}
-        <span className="mx-1 font-extrabold text-indigo-500">Email</span> for
-        your invoice.
+        <span className="mx-1 font-extrabold text-indigo-500">
+          {customerDetails.email}
+        </span> for
+        your invoice and more details.
       </p>
     </>
   );
