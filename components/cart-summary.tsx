@@ -7,13 +7,29 @@ import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart';
 import { Button } from '@/components/ui/button';
 
 export function CartSummary() {
-  const { formattedTotalPrice, totalPrice, cartDetails, cartCount } = useShoppingCart();
+  const { formattedTotalPrice, totalPrice, cartDetails, cartCount, redirectToCheckout } = useShoppingCart();
+  const [isLoading, setIsLoading] = useState(false);
+  const isCheckoutButtonDisabled = isLoading || cartCount! === 0;
 
-  // If you have 0 items the shipping will be 500 cents otherwise it will be zero in case we have no products
+  // If your cart have more than 0 items the shipping cost will be 500 cents which means 5  dollars otherwise it will be zero in case you have no products
   const shippingAmount = cartCount! > 0 ? 500 : 0;
   const totalAmount = totalPrice! + shippingAmount;
 
-  function onCheckout() {}
+  async function onCheckout() {
+    setIsLoading(true);
+    const response = await fetch('/api/checkout', {
+      method: 'POST',
+      body: JSON.stringify(cartDetails)
+    });
+
+    const data = await response.json();
+    const result = await redirectToCheckout(data.id);
+
+    if (result?.error) {
+      console.error(result);
+    }
+    setIsLoading(false);
+  }
 
   return (
     <section
@@ -48,9 +64,15 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
-        <Button className="w-full">
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Loading...
+        <Button
+          className="w-full"
+          onClick={onCheckout}
+          // button will only be disabled if the conditions of the variable isCheckoutButtonDisabled are met
+          disabled={isCheckoutButtonDisabled}
+        >
+          {/* using the state here to show the loading icon and loading message only if it is indeed loading */}
+          {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {isLoading ? 'Loading...' : 'Checkout'}
         </Button>
       </div>
     </section>
