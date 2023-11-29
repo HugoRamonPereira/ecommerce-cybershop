@@ -7,13 +7,13 @@
     "plugin:tailwindcss/recommended"
   ],
   "plugins": ["tailwindcss"],
-  "rules": {
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
-    "tailwindcss/no-custom-classname": "off",
-    "semi": [2, "always"],
-    "quotes": ["error", "single", { "avoidEscape": true }]
-  },
+  // "rules": {
+  //   "@next/next/no-html-link-for-pages": "off",
+  //   "react/jsx-key": "off",
+  //   "tailwindcss/no-custom-classname": "off",
+  //   "semi": [2, "always"],
+  //   "quotes": ["error", "single", { "avoidEscape": true }]
+  // },
   "settings": {
     "tailwindcss": {
       "callees": ["cn"],

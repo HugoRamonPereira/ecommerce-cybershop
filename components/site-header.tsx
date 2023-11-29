@@ -1,30 +1,30 @@
-'use client';
+"use client"
 
-import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Edit, ShoppingBag } from 'lucide-react';
-import { useShoppingCart } from 'use-shopping-cart';
+import Link from "next/link"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { Edit, ShoppingBag } from "lucide-react"
+import { useShoppingCart } from "use-shopping-cart"
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { MainNav } from '@/components/main-nav';
-import { ThemeSwitcher } from '@/components/theme-toggle';
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { MainNav } from "@/components/main-nav"
+import { ThemeSwitcher } from "@/components/theme-toggle"
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const defaultSearchQuery = searchParams.get('search') ?? '';
-  const { cartCount } = useShoppingCart();
+  const pathname = usePathname()
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const defaultSearchQuery = searchParams.get("search") ?? ""
+  const { cartCount } = useShoppingCart()
 
   // This is to hide the header in case we are in the studio page
-  if (pathname.startsWith('/studio')) return null;
+  if (pathname.startsWith("/studio")) return null
 
   function onSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formInputData = new FormData(event.currentTarget);
-    const searchQuery = formInputData.get('search');
-    router.replace(`/?search=${searchQuery}`);
+    event.preventDefault()
+    const formInputData = new FormData(event.currentTarget)
+    const searchQuery = formInputData.get("search")
+    router.replace(`/?search=${searchQuery}`)
   }
 
   return (
@@ -54,15 +54,17 @@ export function SiteHeader() {
             </Button>
           </Link>
           <ThemeSwitcher />
-          {process.env.NODE_ENV === 'development' && (
-            <Link href='/studio'>
-              <Button size='sm' variant='ghost'>
-                <Edit className='h-5 w-5' />
+          {/* The studio is available only in development mode */}
+          {/* We don't want anyone have access to the studio where our products are */}
+          {process.env.NODE_ENV === "development" && (
+            <Link href="/studio">
+              <Button size="sm" variant="ghost">
+                <Edit className="h-5 w-5" />
               </Button>
             </Link>
           )}
         </div>
       </div>
     </header>
-  );
+  )
 }
